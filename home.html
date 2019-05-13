@@ -1,0 +1,34 @@
+
+<ion-header >
+  <ion-navbar color="primary">
+    <ion-title>
+        <ion-icon name="clipboard"> Lista de Tarefas</ion-icon>   
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <ion-item>
+        <ion-label floating>Digite as Tarefas</ion-label>
+        <ion-input [(ngModel)]="tarefa" type="text"></ion-input>
+    </ion-item>
+    <button ion-button round (click)="adicionar()">
+      <ion-icon name="add"></ion-icon>
+       Adicionar
+    </button><br><br>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let tarefa of tarefas" item="tarefa">
+        <ion-item>{{tarefa}}</ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button  (click)="deletar()">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>  
+
+   </ion-item-sliding> 
+  </ion-list>
+
+
+</ion-content>
